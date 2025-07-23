@@ -8,26 +8,40 @@ public class MyFirstProgram {
     hello("user");
     hello("Eduard");
 
-    double a = 8.0;
-    double s = a * a;
-    System.out.println("Площадь квадрата со стороной " + a + " = " + s);
+    double A = 8.0;
+    double S = A * A;
+    System.out.println("Площадь квадрата со стороной " + A + " = " + S);
 
-    double l = 5;
-    System.out.println("Площадь квадрата со стороной " + l + " = " + area(l));
+    Square s = new Square();
+    s.l = 5;
+    System.out.println("Площадь квадрата со стороной " + s.l + " = " + area(s));
 
-    double x = 4;
-    double y = 6;
-    System.out.println("Площадь прямоугольника со сторонами " + x + " и " + y + " = " + area(x, y));
+    SquareCons sc = new SquareCons(10);
+    System.out.println("Площадь квадрата со стороной " + sc.l + " = " + area(sc));
+
+    Rectangle r = new Rectangle();
+    r.a = 4;
+    r.b = 6;
+    System.out.println("Площадь прямоугольника со сторонами " + r.a + " и " + r.b + " = " + area(r));
+
+    RectangleCons rc = new RectangleCons(20,30);
+    System.out.println("Площадь прямоугольника со сторонами " + rc.a + " и " + rc.b + " = " + area(rc));
 
   }
   public static void hello(String somebody){
     System.out.println("Hello, " + somebody + "!");
   }
-  public static double area(double len){
-    return len*len;
+  public static double area (SquareCons sc){
+    return sc.l * sc.l;
   }
-  public static double area(double a, double b){
-    return a * b;
+  public static double area(Square s){
+    return s.l * s.l;
+  }
+  public static double area(Rectangle r){
+    return r.a * r.b;
+  }
+  public static double area (RectangleCons rc){
+    return rc.a * rc.b;
   }
 
 }
