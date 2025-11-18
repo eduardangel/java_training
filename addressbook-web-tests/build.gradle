@@ -6,4 +6,5 @@ repositories {
 dependencies {
     implementation group: 'org.testng', name: 'testng', version: '7.11.0'
     implementation("org.seleniumhq.selenium:selenium-java:4.38.0")
+    implementation("com.codeborne:junit4:7.9.4")
 }
