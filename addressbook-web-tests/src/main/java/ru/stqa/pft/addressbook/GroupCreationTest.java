@@ -40,7 +40,7 @@ public class GroupCreationTest {
     driver.findElement(By.cssSelector("input:nth-child(7)")).click();
   }
   @Test
-  public void groupCreation() {
+  public void testGroupCreation() {
     driver.findElement(By.linkText("groups")).click();
     driver.findElement(By.name("new")).click();
     driver.findElement(By.name("group_name")).click();
