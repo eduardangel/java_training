@@ -32,10 +32,6 @@ public class GroupCreationTest {
     js = (JavascriptExecutor) driver;
     vars = new HashMap<String, Object>();
   }
-  @After
-  public void tearDown() {
-    driver.quit();
-  }
   @Test
   public void groupCreation() {
     driver.get("http://localhost/addressbook/");
@@ -55,5 +51,9 @@ public class GroupCreationTest {
     driver.findElement(By.name("group_footer")).sendKeys("test3");
     driver.findElement(By.name("submit")).click();
     driver.findElement(By.linkText("group page")).click();
+  }
+  @After
+  public void tearDown() {
+    driver.quit();
   }
 }
