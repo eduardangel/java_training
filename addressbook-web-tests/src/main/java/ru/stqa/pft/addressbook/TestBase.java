@@ -63,4 +63,12 @@ public class TestBase {
     public void tearDown() {
       driver.quit();
     }
+
+    protected void deleteSelectedGroups() {
+      driver.findElement(By.name("delete")).click();
+    }
+
+    protected void selectGroup() {
+      driver.findElement(By.cssSelector(".group:nth-child(10) > input")).click();
+    }
 }
