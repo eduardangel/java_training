@@ -3,15 +3,12 @@ package ru.stqa.pft.addressbook.appmanager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class ApplicationManager {
-
-    protected WebDriver driver;
+public class ApplicationManager extends NavigationHelper{
 
     private GroupHelper groupHelper;
     JavascriptExecutor js;
@@ -33,10 +30,6 @@ public class ApplicationManager {
       driver.findElement(By.name("pass")).click();
       driver.findElement(By.name("pass")).sendKeys(password);
       driver.findElement(By.cssSelector("input:nth-child(7)")).click();
-    }
-
-    public void gotoGroupPage() {
-      driver.findElement(By.linkText("groups")).click();
     }
 
     public void stop() {
