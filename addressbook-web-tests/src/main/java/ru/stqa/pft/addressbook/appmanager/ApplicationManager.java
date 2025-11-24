@@ -8,32 +8,37 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ApplicationManager extends GroupHelper{
+public class ApplicationManager {
+    private final GroupHelper groupHelper = new GroupHelper();
     JavascriptExecutor js;
     private Map<String, Object> vars;
 
     public void init() {
-        driver = new FirefoxDriver();
-        js = (JavascriptExecutor) driver;
+        groupHelper.driver = new FirefoxDriver();
+        js = (JavascriptExecutor) groupHelper.driver;
         vars = new HashMap<String, Object>();
-        driver.get("http://localhost/addressbook/");
+        groupHelper.driver.get("http://localhost/addressbook/");
         login("admin", "secret");
     }
 
     private void login(String username, String password) {
-      driver.manage().window().setSize(new Dimension(2147, 1180));
-      driver.findElement(By.name("user")).click();
-      driver.findElement(By.name("user")).sendKeys(username);
-      driver.findElement(By.name("pass")).click();
-      driver.findElement(By.name("pass")).sendKeys(password);
-      driver.findElement(By.cssSelector("input:nth-child(7)")).click();
+      groupHelper.driver.manage().window().setSize(new Dimension(2147, 1180));
+      groupHelper.driver.findElement(By.name("user")).click();
+      groupHelper.driver.findElement(By.name("user")).sendKeys(username);
+      groupHelper.driver.findElement(By.name("pass")).click();
+      groupHelper.driver.findElement(By.name("pass")).sendKeys(password);
+      groupHelper.driver.findElement(By.cssSelector("input:nth-child(7)")).click();
     }
 
     public void gotoGroupPage() {
-      driver.findElement(By.linkText("groups")).click();
+      groupHelper.driver.findElement(By.linkText("groups")).click();
     }
 
     public void stop() {
-        driver.quit();
+        groupHelper.driver.quit();
+    }
+
+    public GroupHelper getGroupHelper() {
+        return groupHelper;
     }
 }
