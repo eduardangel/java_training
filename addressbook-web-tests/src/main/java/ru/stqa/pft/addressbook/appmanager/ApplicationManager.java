@@ -3,21 +3,26 @@ package ru.stqa.pft.addressbook.appmanager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class ApplicationManager {
-    private final GroupHelper groupHelper = new GroupHelper();
+
+    protected WebDriver driver;
+
+    private GroupHelper groupHelper;
     JavascriptExecutor js;
     private Map<String, Object> vars;
 
     public void init() {
-        groupHelper.driver = new FirefoxDriver();
-        js = (JavascriptExecutor) groupHelper.driver;
+        driver = new FirefoxDriver();
+        js = (JavascriptExecutor) driver;
         vars = new HashMap<String, Object>();
-        groupHelper.driver.get("http://localhost/addressbook/");
+        driver.get("http://localhost/addressbook/");
+        groupHelper = new GroupHelper(driver);
         login("admin", "secret");
     }
 
