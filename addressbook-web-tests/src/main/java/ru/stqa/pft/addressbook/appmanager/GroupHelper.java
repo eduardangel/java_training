@@ -6,7 +6,7 @@ import ru.stqa.pft.addressbook.model.GroupData;
 
 public class GroupHelper {
 
-    protected WebDriver driver;
+    private WebDriver driver;
 
     public GroupHelper(WebDriver driver) {
         this.driver = driver;

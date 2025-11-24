@@ -27,20 +27,20 @@ public class ApplicationManager {
     }
 
     private void login(String username, String password) {
-      groupHelper.driver.manage().window().setSize(new Dimension(2147, 1180));
-      groupHelper.driver.findElement(By.name("user")).click();
-      groupHelper.driver.findElement(By.name("user")).sendKeys(username);
-      groupHelper.driver.findElement(By.name("pass")).click();
-      groupHelper.driver.findElement(By.name("pass")).sendKeys(password);
-      groupHelper.driver.findElement(By.cssSelector("input:nth-child(7)")).click();
+      driver.manage().window().setSize(new Dimension(2147, 1180));
+      driver.findElement(By.name("user")).click();
+      driver.findElement(By.name("user")).sendKeys(username);
+      driver.findElement(By.name("pass")).click();
+      driver.findElement(By.name("pass")).sendKeys(password);
+      driver.findElement(By.cssSelector("input:nth-child(7)")).click();
     }
 
     public void gotoGroupPage() {
-      groupHelper.driver.findElement(By.linkText("groups")).click();
+      driver.findElement(By.linkText("groups")).click();
     }
 
     public void stop() {
-        groupHelper.driver.quit();
+        driver.quit();
     }
 
     public GroupHelper getGroupHelper() {
