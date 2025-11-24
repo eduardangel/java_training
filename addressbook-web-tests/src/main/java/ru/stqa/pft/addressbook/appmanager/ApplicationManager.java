@@ -8,35 +8,40 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ApplicationManager extends NavigationHelper{
+public class ApplicationManager {
 
+    private final NavigationHelper navigationHelper = new NavigationHelper();
     private GroupHelper groupHelper;
     JavascriptExecutor js;
     private Map<String, Object> vars;
 
     public void init() {
-        driver = new FirefoxDriver();
-        js = (JavascriptExecutor) driver;
+        navigationHelper.driver = new FirefoxDriver();
+        js = (JavascriptExecutor) navigationHelper.driver;
         vars = new HashMap<String, Object>();
-        driver.get("http://localhost/addressbook/");
-        groupHelper = new GroupHelper(driver);
+        navigationHelper.driver.get("http://localhost/addressbook/");
+        groupHelper = new GroupHelper(navigationHelper.driver);
         login("admin", "secret");
     }
 
     private void login(String username, String password) {
-      driver.manage().window().setSize(new Dimension(2147, 1180));
-      driver.findElement(By.name("user")).click();
-      driver.findElement(By.name("user")).sendKeys(username);
-      driver.findElement(By.name("pass")).click();
-      driver.findElement(By.name("pass")).sendKeys(password);
-      driver.findElement(By.cssSelector("input:nth-child(7)")).click();
+      navigationHelper.driver.manage().window().setSize(new Dimension(2147, 1180));
+      navigationHelper.driver.findElement(By.name("user")).click();
+      navigationHelper.driver.findElement(By.name("user")).sendKeys(username);
+      navigationHelper.driver.findElement(By.name("pass")).click();
+      navigationHelper.driver.findElement(By.name("pass")).sendKeys(password);
+      navigationHelper.driver.findElement(By.cssSelector("input:nth-child(7)")).click();
     }
 
     public void stop() {
-        driver.quit();
+        navigationHelper.driver.quit();
     }
 
     public GroupHelper getGroupHelper() {
         return groupHelper;
+    }
+
+    public NavigationHelper getNavigationHelper() {
+        return navigationHelper;
     }
 }
