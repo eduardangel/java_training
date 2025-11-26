@@ -13,31 +13,37 @@ public class GroupHelper {
     }
 
     public void returnToGroupPage() {
-      driver.findElement(By.linkText("group page")).click();
+        click(By.linkText("group page"));
     }
 
     public void submitGroupCreation() {
-      driver.findElement(By.name("submit")).click();
+        click(By.name("submit"));
+    }
+
+    private void click(By locator) {
+        driver.findElement(locator).click();
     }
 
     public void fillGroupForm(GroupData groupData) {
-      driver.findElement(By.name("group_name")).click();
-      driver.findElement(By.name("group_name")).sendKeys(groupData.name());
-      driver.findElement(By.name("group_header")).click();
-      driver.findElement(By.name("group_header")).sendKeys(groupData.header());
-      driver.findElement(By.name("group_footer")).click();
-      driver.findElement(By.name("group_footer")).sendKeys(groupData.footer());
+        type(By.name("group_name"), groupData.name());
+        type(By.name("group_header"), groupData.header());
+        type(By.name("group_footer"), groupData.footer());
+    }
+
+    private void type(By locator, String text) {
+        click(locator);
+        driver.findElement(locator).sendKeys(text);
     }
 
     public void initGroupCreation() {
-      driver.findElement(By.name("new")).click();
+        click(By.name("new"));
     }
 
     public void deleteSelectedGroups() {
-      driver.findElement(By.name("delete")).click();
+        click(By.name("delete"));
     }
 
     public void selectGroup() {
-      driver.findElement(By.name("selected[]")).click();
+        click(By.name("selected[]"));
     }
 }
