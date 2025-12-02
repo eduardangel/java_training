@@ -7,7 +7,7 @@ import org.junit.Test;
 public class SquareConsTests {
 
     @Test
-    public void testArea(){
+    public void testArea() {
         SquareCons s = new SquareCons(5);
         Assert.assertEquals(25, s.area(),0);
     }
