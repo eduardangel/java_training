@@ -23,12 +23,15 @@ public class Equation {
             } else {
                 n = 0;
             }
+
         } else if (b != 0) {
             n = 1;
-        } else if (c == 0) {
-            n = -1;
-        } else {
+
+        } else if (c != 0) {
             n = 0;
+
+        } else {
+            n = -1;
         }
     }
 
