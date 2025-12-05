@@ -12,6 +12,7 @@ import java.util.Map;
 
 public class ApplicationManager {
 
+    private final Browser browser;
     protected WebDriver driver;
 
     private  SessionHelper sessionHelper;
@@ -20,8 +21,11 @@ public class ApplicationManager {
     JavascriptExecutor js;
     private Map<String, Object> vars;
 
+    public ApplicationManager(Browser browser) {
+        this.browser = browser;
+    }
+
     public void init() {
-        Browser browser = Browser.FIREFOX;
         if (browser == Browser.FIREFOX) {
             driver = new FirefoxDriver();
         } else if (browser == Browser.CHROME) {
