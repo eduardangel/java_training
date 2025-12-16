@@ -12,9 +12,11 @@ import java.util.Map;
 
 public class ApplicationManager {
 
-    private final Browser browser;
     protected WebDriver driver;
 
+    private final Browser browser;
+
+    private ContactHelper contactHelper;
     private  SessionHelper sessionHelper;
     private  NavigationHelper navigationHelper;
     private GroupHelper groupHelper;
@@ -36,6 +38,7 @@ public class ApplicationManager {
         js = (JavascriptExecutor) driver;
         vars = new HashMap<String, Object>();
         driver.get("http://localhost/addressbook/");
+        contactHelper = new ContactHelper(driver);
         groupHelper = new GroupHelper(driver);
         navigationHelper = new NavigationHelper(driver);
         sessionHelper = new SessionHelper(driver);
@@ -56,5 +59,9 @@ public class ApplicationManager {
 
     public SessionHelper getSessionHelper() {
         return sessionHelper;
+    }
+
+    public ContactHelper getContactHelper() {
+        return contactHelper;
     }
 }
