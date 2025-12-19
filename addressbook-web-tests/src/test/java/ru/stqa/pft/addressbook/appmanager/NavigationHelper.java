@@ -13,6 +13,6 @@ public class NavigationHelper extends HelperBase{
       click(By.linkText("groups"));
     }
     public void gotoContactForm() {
-        driver.findElement(By.linkText("add new")).click();
+        click(By.linkText("add new"));
     }
 }
