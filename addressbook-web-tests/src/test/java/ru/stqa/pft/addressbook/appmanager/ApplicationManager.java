@@ -17,8 +17,8 @@ public class ApplicationManager {
     private final Browser browser;
 
     private ContactHelper contactHelper;
-    private  SessionHelper sessionHelper;
-    private  NavigationHelper navigationHelper;
+    private SessionHelper sessionHelper;
+    private NavigationHelper navigationHelper;
     private GroupHelper groupHelper;
     JavascriptExecutor js;
     private Map<String, Object> vars;
@@ -60,7 +60,6 @@ public class ApplicationManager {
     public SessionHelper getSessionHelper() {
         return sessionHelper;
     }
-
     public ContactHelper getContactHelper() {
         return contactHelper;
     }
